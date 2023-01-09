@@ -95,6 +95,11 @@ func CreateUpgradeHandler(
 	keepers *keepers.AppKeepers,
 ) upgradetypes.UpgradeHandler {
 	return func(ctx sdk.Context, plan upgradetypes.Plan, vm module.VersionMap) (module.VersionMap, error) {
+		ctx.Logger().Info("check version map")
+		for k, v := range vm {
+			ctx.Logger().Info(k, v)
+		}
+
 		ctx.Logger().Info("start to run module migrations...")
 
 		vm, err := mm.RunMigrations(ctx, configurator, vm)
@@ -124,6 +129,11 @@ func CreateUpgradeHandler(
 		keepers.ICAHostKeeper.SetParams(ctx, hostParams)
 
 		ctx.Logger().Info("upgrade complete")
+
+		ctx.Logger().Info("re-check version map")
+		for k, v := range vm {
+			ctx.Logger().Info(k, v)
+		}
 
 		return vm, err
 	}
