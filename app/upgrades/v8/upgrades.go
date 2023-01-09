@@ -2,6 +2,7 @@ package v8
 
 import (
 	"errors"
+	"fmt"
 
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -21,6 +22,7 @@ func FixBankMetadata(ctx sdk.Context, keepers *keepers.AppKeepers) error {
 
 	atomMetaData, foundMalformed := keepers.BankKeeper.GetDenomMetaData(ctx, malformedDenom)
 	if foundMalformed {
+		ctx.Logger().Info(fmt.Sprintf("malformed denom: %s is found", malformedDenom))
 		// save it with the correct denom
 		keepers.BankKeeper.SetDenomMetaData(ctx, atomMetaData)
 
