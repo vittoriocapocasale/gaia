@@ -298,7 +298,7 @@ replace (
 	github.com/confio/ics23/go => github.com/confio/ics23/go v0.9.0
 
 	// Cosmos SDK & IBC
-	github.com/cosmos/cosmos-sdk => github.com/cosmos/cosmos-sdk v0.45.13-ics
+	github.com/cosmos/cosmos-sdk => github.com/vittoriocapocasale/cosmos-sdk v0.45.013
 	github.com/cosmos/ibc-go/v4 => github.com/cosmos/ibc-go/v4 v4.2.0
 
 	// TODO: remove it: https://github.com/cosmos/cosmos-sdk/issues/13134
@@ -310,7 +310,7 @@ replace (
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 
 	// Tendermint
-	github.com/tendermint/tendermint => github.com/informalsystems/tendermint v0.34.26
+	github.com/tendermint/tendermint => github.com/vittoriocapocasale/tendermint v0.34.27
 
 	// latest grpc doesn't work with with our modified proto compiler, so we need to enforce
 	// the following version across all dependencies.
